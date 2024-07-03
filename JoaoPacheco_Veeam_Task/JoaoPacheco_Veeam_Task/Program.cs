@@ -1,4 +1,6 @@
-﻿namespace JoaoPacheco_Veeam_Task
+﻿using System.Timers;
+
+namespace JoaoPacheco_Veeam_Task
 {
     internal class Program
     {
@@ -17,6 +19,19 @@
 
             _logger = new Logger(logFilePath);
             _folderSyncronization = new FolderSyncronization(sourcePath, destinationPath, _logger);
+
+            var timer = new System.Timers.Timer();
+            timer.Elapsed += TestEvent;
+            timer.Interval = (syncInterval * 1000);
+            timer.Enabled = true;
+            timer.AutoReset = true;
+
+            Console.ReadLine();
+        }
+
+        private static void TestEvent(object? sender, ElapsedEventArgs e)
+        {
+            Console.WriteLine("Test event");
         }
 
         private static bool ValidateArgs(string[] args)

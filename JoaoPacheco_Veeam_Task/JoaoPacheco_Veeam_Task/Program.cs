@@ -2,6 +2,7 @@
 {
     internal class Program
     {
+        private static FolderSyncronization _folderSyncronization;
         private static Logger _logger;
 
         static void Main(string[] args)
@@ -9,7 +10,13 @@
             if (!ValidateArgs(args))
                 return;
 
-            _logger = new Logger(args[3]);
+            var sourcePath = args[0];
+            var destinationPath = args[1];
+            var syncInterval = double.Parse(args[2]);
+            var logFilePath = args[3];
+
+            _logger = new Logger(logFilePath);
+            _folderSyncronization = new FolderSyncronization(sourcePath, destinationPath, _logger);
         }
 
         private static bool ValidateArgs(string[] args)

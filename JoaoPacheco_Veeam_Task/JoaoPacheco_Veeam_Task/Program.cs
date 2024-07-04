@@ -21,12 +21,13 @@ namespace JoaoPacheco_Veeam_Task
             _folderSyncronization = new FolderSyncronization(sourcePath, destinationPath, _logger);
 
             var timer = new System.Timers.Timer();
-            timer.Elapsed += (sender, e) => _folderSyncronization.Sync();
+            timer.Elapsed += (sender, e) => _folderSyncronization.SyncFiles();
             timer.Interval = (syncInterval * 1000);
             timer.Enabled = true;
             timer.AutoReset = true;
 
             _logger.Log("Application started.");
+            Console.WriteLine("Press any key to stop the application.");
             Console.ReadLine();
             _logger.Log("Application stopped.");
         }
@@ -64,6 +65,10 @@ namespace JoaoPacheco_Veeam_Task
                 {
                     File.Create(logFilePath).Close();
                     Console.WriteLine($"Log file created: {logFilePath}");
+                }
+                else
+                {
+                    File.WriteAllText(logFilePath, string.Empty);
                 }
 
                 return true;

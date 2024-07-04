@@ -1,12 +1,19 @@
-﻿using System.Timers;
-
-namespace JoaoPacheco_Veeam_Task
+﻿namespace JoaoPacheco_Veeam_Task
 {
     internal class Program
     {
-        private static FolderSyncronization _folderSyncronization;
-        private static Logger _logger;
+        private static FolderSyncronization? _folderSyncronization;
+        private static Logger? _logger;
 
+        /// <summary>
+        /// Main method that starts the application
+        /// </summary>
+        /// <param name="args">
+        /// 1st Argument: Source directory path
+        /// 2nd Argument: Destination directory path
+        /// 3rd Argument: Sync interval in seconds
+        /// 4th Argument: Log file path
+        /// </param>
         static void Main(string[] args)
         {
             if (!ValidateArgs(args))
@@ -17,9 +24,11 @@ namespace JoaoPacheco_Veeam_Task
             var syncInterval = double.Parse(args[2]);
             var logFilePath = args[3];
 
+            // Sets up Logger and FolderSyncronization instances
             _logger = new Logger(logFilePath);
             _folderSyncronization = new FolderSyncronization(sourcePath, destinationPath, _logger);
 
+            // Set up Timer, on elapsed, triggers event to sync files
             var timer = new System.Timers.Timer();
             timer.Elapsed += (sender, e) => _folderSyncronization.SyncFiles();
             timer.Interval = (syncInterval * 1000);
@@ -32,6 +41,14 @@ namespace JoaoPacheco_Veeam_Task
             _logger.Log("Application stopped.");
         }
 
+        /// <summary>
+        /// Validates the arguments provided to the application
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="DirectoryNotFoundException"></exception>
+        /// <exception cref="FormatException"></exception>
         private static bool ValidateArgs(string[] args)
         {
             try

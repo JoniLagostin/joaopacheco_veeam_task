@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoaoPacheco_Veeam_Task", "JoaoPacheco_Veeam_Task\JoaoPacheco_Veeam_Task.csproj", "{2DA0D27B-C51C-4499-82C2-09F76F0E7F9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JoaoPacheco_Veeam_Task", "JoaoPacheco_Veeam_Task\JoaoPacheco_Veeam_Task.csproj", "{2DA0D27B-C51C-4499-82C2-09F76F0E7F9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoaoPacheco_Veeam_TaskTests", "JoaoPacheco_Veeam_TaskTests\JoaoPacheco_Veeam_TaskTests.csproj", "{582D9B8C-109B-4978-A75D-917131C6AA1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2DA0D27B-C51C-4499-82C2-09F76F0E7F9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DA0D27B-C51C-4499-82C2-09F76F0E7F9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DA0D27B-C51C-4499-82C2-09F76F0E7F9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{582D9B8C-109B-4978-A75D-917131C6AA1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{582D9B8C-109B-4978-A75D-917131C6AA1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{582D9B8C-109B-4978-A75D-917131C6AA1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{582D9B8C-109B-4978-A75D-917131C6AA1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

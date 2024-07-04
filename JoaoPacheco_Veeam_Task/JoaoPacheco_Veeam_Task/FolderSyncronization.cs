@@ -12,5 +12,10 @@
             _destinationPath = destinationPath;
             _logger = logger;
         }
+
+        public void Sync()
+        {
+            _logger.Log("Sync started.");
+        }
     }
 }

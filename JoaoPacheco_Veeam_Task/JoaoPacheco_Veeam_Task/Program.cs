@@ -21,17 +21,14 @@ namespace JoaoPacheco_Veeam_Task
             _folderSyncronization = new FolderSyncronization(sourcePath, destinationPath, _logger);
 
             var timer = new System.Timers.Timer();
-            timer.Elapsed += TestEvent;
+            timer.Elapsed += (sender, e) => _folderSyncronization.Sync();
             timer.Interval = (syncInterval * 1000);
             timer.Enabled = true;
             timer.AutoReset = true;
 
+            _logger.Log("Application started.");
             Console.ReadLine();
-        }
-
-        private static void TestEvent(object? sender, ElapsedEventArgs e)
-        {
-            Console.WriteLine("Test event");
+            _logger.Log("Application stopped.");
         }
 
         private static bool ValidateArgs(string[] args)

@@ -2,7 +2,7 @@
   "profiles": {
     "JoaoPacheco_Veeam_Task": {
       "commandName": "Project",
-      "commandLineArgs": "C:\\source C:\\destination 2 C:\\log.txt"
+      "commandLineArgs": "C:\\Test\\source C:\\Test\\destination 10 C:\\Test\\log.txt"
     }
   }
 }

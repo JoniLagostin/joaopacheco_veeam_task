@@ -15,3 +15,5 @@ A simple C# console application to synchronize files between two directories at 
 	dotnet run "C:\source" "C:\destination" 60 "C:\logs\sync.log"
 
 
+### Tests
+A small number of tests where performed to test the MD5 algorithm

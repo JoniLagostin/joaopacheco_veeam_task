@@ -16,4 +16,4 @@ A simple C# console application to synchronize files between two directories at 
 
 
 ### Tests
-A small number of tests where performed to test the MD5 algorithm.
+A small number of tests were written to test the execution of the MD5 algorithm.

@@ -26,9 +26,16 @@
         {
             // Copy files from source to destination
             // Updates files if file exists but they have different MD5 hash
-            foreach (var sourceFile in Directory.GetFiles(_sourcePath))
+            foreach (var sourceFile in Directory.GetFiles(_sourcePath, "*.*", SearchOption.AllDirectories))
             {
-                var destinationFile = Path.Combine(_destinationPath, Path.GetFileName(sourceFile));
+                var relativePath = Path.GetRelativePath(_sourcePath, sourceFile);
+                var destinationFile = Path.Combine(_destinationPath, relativePath);
+                
+                var destinationDirectory = Path.GetDirectoryName(destinationFile);
+                if (destinationDirectory != null && !Directory.Exists(destinationDirectory))
+                {
+                    Directory.CreateDirectory(destinationDirectory);
+                }
 
                 if (!File.Exists(destinationFile))
                 {
@@ -43,9 +50,10 @@
             }
 
             // Delete files from destination that do not exist in source
-            foreach (var destinationFile in Directory.GetFiles(_destinationPath))
+            foreach (var destinationFile in Directory.GetFiles(_destinationPath, "*.*", SearchOption.AllDirectories))
             {
-                var sourceFile = Path.Combine(_sourcePath, Path.GetFileName(destinationFile));
+                var relativePath = Path.GetRelativePath(_destinationPath, destinationFile);
+                var sourceFile = Path.Combine(_sourcePath, relativePath);
 
                 if (!File.Exists(sourceFile))
                 {

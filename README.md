@@ -1,7 +1,7 @@
 # Folder Synchronization Utility
 
 ### Overview
-A simple C# console application to synchronize files between two directories at a specified interval.
+A simple C# console application to synchronize files between two directories at a specified interval.\
 Garantees that destination folder content is a strick copy of source folder.
 
 ### Usage

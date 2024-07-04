@@ -45,7 +45,7 @@
         /// Validates the arguments provided to the application
         /// </summary>
         /// <param name="args"></param>
-        /// <returns></returns>
+        /// <returns>true if argument are valid, false otherwise</returns>
         /// <exception cref="ArgumentException"></exception>
         /// <exception cref="DirectoryNotFoundException"></exception>
         /// <exception cref="FormatException"></exception>
